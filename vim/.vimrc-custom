@@ -1,0 +1,21 @@
+"" “Give me six hours to chop down a tree and I will spend the first four sharpening the axe.” [Abraham Lincoln]
+
+"" Run on vim start up...
+if has('vim_starting')
+  set nocompatible               
+endif
+
+"" Vim Plug
+let vimplug_exists=expand('~/.vim/autoload/plug.vim')
+if !filereadable(vimplug_exists)
+  if !executable("curl")
+    echoerr "Vim-Plug not installed...curl also not installed, either manually install Vim-Plug, or install curl and restart Vim."
+    execute "q!"
+  endif
+  echo "Installing Vim-Plug..."
+  echo ""
+  silent !\curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  let g:not_finish_vimplug = "yes"
+
+  autocmd VimEnter * PlugInstall
+endif

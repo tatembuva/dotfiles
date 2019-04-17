@@ -5,7 +5,7 @@ if has('vim_starting')
   set nocompatible               
 endif
 
-"" Vim Plug
+"" Vim Plug Setup/Install
 let vimplug_exists=expand('~/.vim/autoload/plug.vim')
 if !filereadable(vimplug_exists)
   if !executable("curl")
@@ -19,3 +19,8 @@ if !filereadable(vimplug_exists)
 
   autocmd VimEnter * PlugInstall
 endif
+
+"" Vim Plug
+call plug#begin('~/.vim/plugged')
+
+call plug#end()

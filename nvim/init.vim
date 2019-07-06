@@ -50,6 +50,18 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 " Vim Git Gutter 🚦
 Plug 'airblade/vim-gitgutter'
+" Deoplte 🎰
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+" Emmet 🤹
+Plug 'mattn/emmet-vim'
+" Svelte (JS frontend framework/compiler)🥇
+Plug 'burner/vim-svelte'
 call plug#end()
 " ***********************************************************
 " Plugin Configs                                            *
@@ -119,5 +131,15 @@ augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
 augroup END
-
-
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" Emmet Config
+" Emmet trigger, <,,> will be the full expand command
+let g:user_emmet_leader_key=','
+" Emmet enabled for Insert & Normal modes only
+let g:user_emmet_mode='a'
+" Enable Emmet for html, css, jsx, svelte
+let g:user_emmet_install_global = 0
+autocmd FileType html,css,jsx,svelte EmmetInstall

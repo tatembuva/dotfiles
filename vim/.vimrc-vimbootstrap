@@ -71,6 +71,9 @@ Plug 'vimwiki/vimwiki'
 " VimStartify
 Plug 'mhinz/vim-startify'
 
+" Nim stuff
+Plug 'baabelfish/nvim-nim'
+
 "" Vim-Session
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
@@ -101,6 +104,10 @@ Plug 'flazz/vim-colorschemes'
 
 "" Markdown Syntax Highlighting
 Plug 'gabrielelana/vim-markdown'
+"" Markdown Live Preview
+Plug 'JamshedVesuna/vim-markdown-preview'
+" Latex Support
+Plug 'xuhdev/vim-latex-live-preview', { 'for': 'tex' }
 "" Lua Support
 Plug 'tbastos/vim-lua'
 ""Haxe Language Support
@@ -198,7 +205,6 @@ else
     set shell=/bin/sh
 endif
 
-" session management
 let g:session_directory = "~/.vim/session"
 let g:session_autoload = "no"
 let g:session_autosave = "no"
@@ -298,7 +304,9 @@ let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
 let g:airline_powerline_fonts = 1
 
-
+"" Vim Latex Stuff
+autocmd Filetype tex setl updatetime=1
+let g:livepreview_previewer = 'open -a Preview'
 
 "*****************************************************************************
 "" Abbreviations
@@ -352,6 +360,14 @@ endif
 
 " emmet expand
 "let g:user_emmet_expandabbr_key = '<tab>'
+
+" Markdown Preview
+let g:instant_markdown_autostart = 0
+let vim_markdown_preview_hotkey='<C-m>'
+let vim_markdown_preview_github=1
+" let vim_markdown_preview_browser='Google Chrome'
+let vim_markdown_preview_toggle=2
+
 
 "*****************************************************************************
 "" Functions

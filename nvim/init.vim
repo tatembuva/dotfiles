@@ -8,7 +8,7 @@ let mapleader = ","
 set nocompatible            " Disable compatibility to old-time vi
 set showmatch               " Show matching brackets.
 set ignorecase              " Do case insensitive matching
-set mouse=v                 " middle-click paste with mouse
+set mouse=a                 " middle-click paste with mouse
 set hlsearch                " highlight search results
 set tabstop=4               " number of columns occupied by a tab character
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
@@ -19,6 +19,27 @@ set number                  " add line numbers
 set relativenumber          " Show relative line numbering
 set wildmode=longest,list   " get bash-like tab completions
 set cc=80                   " set an 80 column border for good coding style
+set cursorline              " hightlight line at cursor position
+" Dank Modal Remaps 🐸
+inoremap jj <Esc>
+cnoremap jk <Esc>
+vnoremap jk <Esc>
+"Buffer Navigation 🚥
+nnoremap <silent> <S-l> :bn<CR>
+nnoremap <silent> <S-h> :bp<CR>
+nnoremap <leader>w :bn<CR>
+"Window/Split Navigation 🚦
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+"Close a buffer 🚫
+nnoremap <Leader>c :bd<CR>
+" Search Highlight clear 🙏🏽
+nnoremap <Leader><Space> :noh<CR>
+"" Directories for swp files ❌
+set nobackup
+set noswapfile
 
 " ***********************************************************
 " Vim Plug 🔌                                               *
@@ -62,6 +83,11 @@ endif
 Plug 'mattn/emmet-vim'
 " Svelte (JS frontend framework/compiler)🥇
 Plug 'burner/vim-svelte'
+" Nim Support ✊🏽
+Plug 'baabelfish/nvim-nim'
+" Latex Support ✊🏽
+Plug 'lervag/vimtex'
+
 call plug#end()
 " ***********************************************************
 " Plugin Configs                                            *
@@ -81,6 +107,8 @@ if executable('ag')
 endif
 " Ack! prevents command from jumping to the first result
 nnoremap <Leader>a :Ack!<Space>
+" FZF 
+nnoremap <Leader>e :FZF<CR>
 " Vim Airline
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
@@ -143,3 +171,12 @@ let g:user_emmet_mode='a'
 " Enable Emmet for html, css, jsx, svelte
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,jsx,svelte EmmetInstall
+
+" Vimtex Setup
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_view_method = 'skim'
+" Latex Autocompletion with deoplete
+call deoplete#custom#var('omni', 'input_patterns', {
+      \ 'tex': g:vimtex#re#deoplete
+      \})
+nmap <space>li <plug>(vimtex-info)

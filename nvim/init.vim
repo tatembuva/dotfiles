@@ -87,6 +87,8 @@ Plug 'burner/vim-svelte'
 Plug 'baabelfish/nvim-nim'
 " Latex Support ✊🏽
 Plug 'lervag/vimtex'
+" Markdown Support 📓
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 
 call plug#end()
 " ***********************************************************
@@ -172,9 +174,13 @@ let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 autocmd FileType html,css,jsx,svelte EmmetInstall
 
-" Vimtex Setup
+" Vimtex Setup 
+autocmd FileType tex setl updatetime=1
 let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_view_method = 'skim'
+" let g:vimtex_view_method = 'skim'
+let g:vimtex_view_general_viewer='open'
+let g:vimtex_view_general_options='@pdf'
+let g:tex_flavor = 'latex'
 " Latex Autocompletion with deoplete
 call deoplete#custom#var('omni', 'input_patterns', {
       \ 'tex': g:vimtex#re#deoplete

@@ -48,6 +48,8 @@ call plug#begin('~/.config/nvim/plugged')
 " NERDTree 🌳
 " Simple File Explorer
 Plug 'scrooloose/nerdTree'
+" Polyglot 🙌🏽
+Plug 'sheerun/vim-polyglot'
 "Nerdtree Tabs 📑
 Plug 'jistr/vim-nerdtree-tabs'
 " FZF 🔍
@@ -62,6 +64,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 " Solarized8️⃣
 Plug 'lifepillar/vim-solarized8'
+" Vim One1️⃣
+Plug 'rakr/vim-one'
 " Javascript syntax highlighting
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -89,6 +93,8 @@ Plug 'baabelfish/nvim-nim'
 Plug 'lervag/vimtex'
 " Markdown Support 📓
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+" Twig Template Syntax Highligting 👺
+Plug 'lumiliet/vim-twig'
 
 call plug#end()
 " ***********************************************************

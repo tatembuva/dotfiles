@@ -75,14 +75,16 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 " Vim Git Gutter 🚦
 Plug 'airblade/vim-gitgutter'
+" CoC.nvim 🐓
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Deoplte 🎰
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 " Emmet 🤹
 Plug 'mattn/emmet-vim'
 " Svelte (JS frontend framework/compiler)🥇
@@ -168,7 +170,7 @@ augroup vimrc-javascript
   autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
 augroup END
 " Deoplete
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " Emmet Config
@@ -188,7 +190,7 @@ let g:vimtex_view_general_viewer='open'
 let g:vimtex_view_general_options='@pdf'
 let g:tex_flavor = 'latex'
 " Latex Autocompletion with deoplete
-call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'tex': g:vimtex#re#deoplete
-      \})
+" call deoplete#custom#var('omni', 'input_patterns', {
+"       \ 'tex': g:vimtex#re#deoplete
+"       \})
 nmap <space>li <plug>(vimtex-info)

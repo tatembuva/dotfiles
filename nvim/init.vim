@@ -169,6 +169,8 @@ augroup vimrc-javascript
   autocmd!
   autocmd FileType javascript set tabstop=4|set shiftwidth=4|set expandtab softtabstop=4
 augroup END
+" CoC Prettier
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
 " Deoplete
 " let g:deoplete#enable_at_startup = 1
 " <TAB>: completion.

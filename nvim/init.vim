@@ -59,6 +59,8 @@ Plug 'junegunn/fzf.vim'
 " The sliver searcher 🏄
 " Ack plugin that supports ag, text-search
 Plug 'mileszs/ack.vim'
+" MatchTags 🥢
+Plug 'valloric/matchtagalways'
 " Vim Airline 🛩
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -69,12 +71,16 @@ Plug 'rakr/vim-one'
 " Javascript syntax highlighting
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
+" Calculate Import Costs for js/jsx/ts/tsx projects ⚖️
+Plug 'yardnsm/vim-import-cost', { 'do': 'npm install' }
 " Vim Commentary ❝ ❞
 Plug 'tpope/vim-commentary'
 " Vim Fugitive 😈 #1 Git Plugin
 Plug 'tpope/vim-fugitive'
 " Vim Git Gutter 🚦
 Plug 'airblade/vim-gitgutter'
+" Solidity Syntax Highlighting
+Plug 'tomlion/vim-solidity'
 " CoC.nvim 🐓
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Deoplte 🎰
@@ -91,12 +97,22 @@ Plug 'mattn/emmet-vim'
 Plug 'burner/vim-svelte'
 " Nim Support ✊🏽
 Plug 'baabelfish/nvim-nim'
+" Dep for Vim-Notes
+Plug 'xolox/vim-misc'
+" Vim Notes 📚
+Plug 'xolox/vim-notes'
 " Latex Support ✊🏽
 Plug 'lervag/vimtex'
 " Markdown Support 📓
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Twig Template Syntax Highligting 👺
 Plug 'lumiliet/vim-twig'
+" Auto load view files on restart
+Plug 'vim-scripts/restore_view.vim'
+" Vim Latex Support 👨🏽‍🏫
+Plug 'lervag/vimtex'
+" V lang Support
+Plug 'ollykel/v-vim'
 
 call plug#end()
 " ***********************************************************
@@ -117,6 +133,9 @@ if executable('ag')
 endif
 " Ack! prevents command from jumping to the first result
 nnoremap <Leader>a :Ack!<Space>
+" View Restore
+" Other option is to save cursor position with 'cursor' below
+set viewoptions=folds
 " FZF 
 nnoremap <Leader>e :FZF<CR>
 " Vim Airline
@@ -145,12 +164,18 @@ if !exists('g:airline_powerline_fonts')
   let g:airline_symbols.paste     = '∥'
   let g:airline_symbols.whitespace = 'Ξ'
 else
-  let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = ''
-  let g:airline_left_sep = ''
-  let g:airline_left_alt_sep = ''
-  let g:airline_right_sep = ''
-  let g:airline_right_alt_sep = ''
+  " let g:airline#extensions#tabline#left_sep = ''
+  let g:airline#extensions#tabline#left_sep = "\uE0B4"
+  " let g:airline#extensions#tabline#left_alt_sep = ''
+  let g:airline#extensions#tabline#left_alt_sep = "\uE0B5"
+  " let g:airline_left_sep = ''
+  let g:airline_left_sep = "\uE0B4"
+  " let g:airline_left_alt_sep = ''
+  " let g:airline_left_alt_sep = "\ue0b5"
+  " let g:airline_right_sep = ''
+  let g:airline_right_sep = "\uE0B6"
+  " let g:airline_right_alt_sep = ''
+  let g:airline_right_alt_sep = "\ue0b7"
   let g:airline_symbols.branch = ''
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
@@ -196,3 +221,29 @@ let g:tex_flavor = 'latex'
 "       \ 'tex': g:vimtex#re#deoplete
 "       \})
 nmap <space>li <plug>(vimtex-info)
+
+" Vim-Import-Cost , run on buffer-change
+augroup import_cost_auto_run
+  autocmd!
+  autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx ImportCost
+  autocmd BufEnter *.js,*.jsx,*.ts,*.tsx ImportCost
+  autocmd CursorHold *.js,*.jsx,*.ts,*.tsx ImportCost
+augroup END
+" Terminal buffer defaults
+augroup custom_term
+	autocmd!
+	autocmd TermOpen * setlocal nonumber norelativenumber bufhidden=hide
+augroup END
+" Maps ESC to exit terminal's insert mode
+  if has('nvim')
+    tnoremap <Esc> <C-\><C-n>
+  endif
+" Add MatchTagsAlways to js & jsx
+let g:mta_filetypes = {
+    \ 'html' : 1,
+    \ 'jsx': 1,
+    \ 'javascript.jsx': 1,
+    \ 'xhtml' : 1,
+    \ 'xml' : 1,
+    \ 'jinja' : 1,
+    \}

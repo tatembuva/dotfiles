@@ -17,6 +17,7 @@ set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set relativenumber          " Show relative line numbering
+set wildmenu
 set wildmode=longest,list   " get bash-like tab completions
 set cc=80                   " set an 80 column border for good coding style
 set cursorline              " hightlight line at cursor position
@@ -40,6 +41,17 @@ nnoremap <Leader><Space> :noh<CR>
 "" Directories for swp files ❌
 set nobackup
 set noswapfile
+" no one is really happy until you have this shortcuts 😜
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Qall! qall!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
+cnoreabbrev Qall qall
 
 " ***********************************************************
 " Vim Plug 🔌                                               *
@@ -64,10 +76,18 @@ Plug 'valloric/matchtagalways'
 " Vim Airline 🛩
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+" Vim LightLine ☁️
+" Plug 'itchyny/lightline.vim'
 " Solarized8️⃣
 Plug 'lifepillar/vim-solarized8'
+" GruvBox 🕺
+Plug 'morhetz/gruvbox'
 " Vim One1️⃣
 Plug 'rakr/vim-one'
+" Nightfly🌚
+Plug 'bluz71/vim-nightfly-guicolors'
+" Edge 💍
+Plug 'sainnhe/edge'
 " Javascript syntax highlighting
 Plug 'mxw/vim-jsx'
 Plug 'pangloss/vim-javascript'
@@ -103,6 +123,8 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 " Latex Support ✊🏽
 Plug 'lervag/vimtex'
+" Markdown Syntax Highlighting 📔
+Plug 'gabrielelana/vim-markdown'
 " Markdown Support 📓
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Twig Template Syntax Highligting 👺
@@ -113,6 +135,17 @@ Plug 'vim-scripts/restore_view.vim'
 Plug 'lervag/vimtex'
 " V lang Support
 Plug 'ollykel/v-vim'
+" GDscript3 🎮
+Plug 'calviken/vim-gdscript3'
+" Goyo 🎴
+Plug 'junegunn/goyo.vim'
+" Line Identation Characters 〰️
+Plug 'yggdroot/indentline'
+" Vim-MQL4 Syntax 🤑
+Plug 'vobornik/vim-mql4'
+" TagBar 😬
+Plug 'majutsushi/tagbar'
+
 
 call plug#end()
 " ***********************************************************
@@ -138,10 +171,11 @@ nnoremap <Leader>a :Ack!<Space>
 set viewoptions=folds
 " FZF 
 nnoremap <Leader>e :FZF<CR>
-" Vim Airline
+" " Vim Airline
 let g:airline_theme = 'solarized'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#neomake#enabled = 0
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
@@ -165,29 +199,43 @@ if !exists('g:airline_powerline_fonts')
   let g:airline_symbols.whitespace = 'Ξ'
 else
   " let g:airline#extensions#tabline#left_sep = ''
-  let g:airline#extensions#tabline#left_sep = "\uE0B4"
+  " let g:airline#extensions#tabline#left_sep = "\uE0B4"
+  let g:airline#extensions#tabline#left_sep = ""
   " let g:airline#extensions#tabline#left_alt_sep = ''
-  let g:airline#extensions#tabline#left_alt_sep = "\uE0B5"
+  " let g:airline#extensions#tabline#left_alt_sep = "\uE0B5"
+  let g:airline#extensions#tabline#left_alt_sep = ""
   " let g:airline_left_sep = ''
-  let g:airline_left_sep = "\uE0B4"
+  " let g:airline_left_sep = "\uE0B4"
+  let g:airline_left_sep = ""
   " let g:airline_left_alt_sep = ''
   " let g:airline_left_alt_sep = "\ue0b5"
+  let g:airline_left_alt_sep = ""
   " let g:airline_right_sep = ''
-  let g:airline_right_sep = "\uE0B6"
+  " let g:airline_right_sep = "\uE0B6"
+  let g:airline_right_sep = ""
   " let g:airline_right_alt_sep = ''
-  let g:airline_right_alt_sep = "\ue0b7"
+  " let g:airline_right_alt_sep = "\ue0b7"
+  let g:airline_right_alt_sep = " | "
   let g:airline_symbols.branch = ''
   let g:airline_symbols.readonly = ''
   let g:airline_symbols.linenr = ''
 endif
-" Airline + Fugitive
+" " Airline + Fugitive
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif
+set noshowmode
+" Vim LightLine
+" let g:lightline = {
+"       \ 'colorscheme': 'solarized',
+"       \ }
 " Vim-Solarized ColorScheme
 syntax on
 set termguicolors
-colorscheme solarized8
+let g:edge_style = 'neon'
+let g:edge_disable_italic_comment = 1
+colorscheme  solarized8
+"solarized8
 " Vim-Javascript
 " 4 space tabs
 augroup vimrc-javascript
@@ -247,3 +295,6 @@ let g:mta_filetypes = {
     \ 'xml' : 1,
     \ 'jinja' : 1,
     \}
+" if @% == ""
+"   bd
+" endif

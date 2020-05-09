@@ -17,4 +17,5 @@ source ~/dotfiles/nvim/plugin-config/ack.vim
 source ~/dotfiles/nvim/plugin-config/matchtagalways.vim
 source ~/dotfiles/nvim/plugin-config/coc.vim
 source ~/dotfiles/nvim/plugin-config/fugitive.vim
+source ~/dotfiles/nvim/plugin-config/vimtex.vim
 source ~/dotfiles/nvim/plugin-config/start-screen.vim

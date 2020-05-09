@@ -36,5 +36,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 " Vim Git Gutter 🚦
 Plug 'airblade/vim-gitgutter'
+" Latex Support
+Plug 'lervag/vimtex'
 
 call plug#end()

@@ -140,6 +140,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 nnoremap <space>e :CocCommand explorer<CR>
 " Install all extensions
-let g:coc_global_extensions = ['coc-emmet', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-vimlsp', 'coc-eslint', 'coc-yaml', 'coc-python', 'coc-snippets']
+let g:coc_global_extensions = ['coc-emmet', 'coc-explorer', 'coc-json', 'coc-tsserver', 'coc-vimlsp', 'coc-eslint', 'coc-yaml', 'coc-python', 'coc-snippets', 'coc-vimtex']
 
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif

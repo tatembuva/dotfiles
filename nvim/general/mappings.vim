@@ -31,3 +31,5 @@ nnoremap <Leader><Space> :noh<CR>
   if has('nvim')
     tnoremap <Esc> <C-\><C-n>
   endif
+"Close quickfix window
+nnoremap <Leader>d :cclose<CR>

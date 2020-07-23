@@ -19,3 +19,5 @@ source ~/dotfiles/nvim/plugin-config/coc.vim
 source ~/dotfiles/nvim/plugin-config/fugitive.vim
 source ~/dotfiles/nvim/plugin-config/vimtex.vim
 source ~/dotfiles/nvim/plugin-config/start-screen.vim
+source ~/dotfiles/nvim/plugin-config/merge-tool.vim
+source ~/dotfiles/nvim/plugin-config/vim-go.vim

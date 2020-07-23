@@ -145,7 +145,8 @@ Plug 'yggdroot/indentline'
 Plug 'vobornik/vim-mql4'
 " TagBar 😬
 Plug 'majutsushi/tagbar'
-
+" A lil merge-tool
+Plug 'samoshkin/vim-mergetool'
 
 call plug#end()
 " ***********************************************************
@@ -298,3 +299,6 @@ let g:mta_filetypes = {
 " if @% == ""
 "   bd
 " endif
+" vim-mergetool
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'

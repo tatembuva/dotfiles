@@ -38,5 +38,10 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 " Latex Support
 Plug 'lervag/vimtex'
-
+" A lil merge-tool
+Plug 'samoshkin/vim-mergetool'
+" Wren Syntax
+Plug 'lluchs/vim-wren'
+" Golang support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()

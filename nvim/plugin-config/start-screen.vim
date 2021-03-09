@@ -7,9 +7,9 @@ let g:startify_lists = [
           \ ]
 let g:startify_bookmarks = [
             \ { 'c': '~/code' },
-            \ { 'n': '~/dotfiles/nvim/init.vim' },
-            \ { 'z': '~/.zshrc' },
-            \ '~/code',
+            \ { 'n': '~/code/dotfiles/nvim/init.vim' },
+            \ { 'f': '~/.config/fish/config.fish' },
+            \ { 't': '~/.config/kitty/kitty.conf' },
             \ ]
 let g:startify_session_autoload = 1
 let g:startify_change_to_vcs_root = 1

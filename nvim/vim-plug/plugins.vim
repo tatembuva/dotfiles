@@ -10,10 +10,12 @@ Plug 'scrooloose/nerdTree'
 Plug 'sheerun/vim-polyglot'
 " MatchTags 🥢
 Plug 'valloric/matchtagalways'
+" Seti
+Plug 'trusktr/seti.vim'
 " Solarized8️⃣
-Plug 'lifepillar/vim-solarized8'
+" Plug 'lifepillar/vim-solarized8'
 " GruvBox 🕺
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
 " Vim Airline 🛩
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -37,11 +39,11 @@ Plug 'tpope/vim-fugitive'
 " Vim Git Gutter 🚦
 Plug 'airblade/vim-gitgutter'
 " Latex Support
-Plug 'lervag/vimtex'
+" Plug 'lervag/vimtex'
 " A lil merge-tool
-Plug 'samoshkin/vim-mergetool'
+" Plug 'samoshkin/vim-mergetool'
 " Wren Syntax
-Plug 'lluchs/vim-wren'
+" Plug 'lluchs/vim-wren'
 " Golang support
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+" Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()

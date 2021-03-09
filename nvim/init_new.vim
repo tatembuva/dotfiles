@@ -1,3 +1,4 @@
+" Big Sur Update
 " Plugins
 source ~/dotfiles/nvim/vim-plug/plugins.vim
 

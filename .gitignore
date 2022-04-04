@@ -2,3 +2,9 @@
 *~
 *.swp
 *.swo
+
+
+# Neovim separated data-root directories (In nvim.lua.{markdown, jsweb, python3, rust, experimental})
+
+app.data
+*.data

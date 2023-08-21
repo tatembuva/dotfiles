@@ -2,5 +2,5 @@
 #### Personal Configuration Files
 👨🏾‍💻
 
-##### Vim
+##### Install Script
 

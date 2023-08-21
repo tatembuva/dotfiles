@@ -1,6 +1,8 @@
 # dotfiles
-#### Personal Configuration Files
-👨🏾‍💻
+*Personal Configuration Files*
 
-##### Install Script
+---
+
+## Script
+
 

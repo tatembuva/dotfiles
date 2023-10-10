@@ -14,8 +14,9 @@ vim.o.expandtab = true
 vim.bo.softtabstop = 2
 vim.o.termguicolors = true
 vim.o.mouse = 'a'
+vim.opt.swapfile = false
 -- Remaps
 local opts = {noremap = true}
-vim.keymap.set("n", "<leader>n", vim.cmd.Ex, opts)
+vim.keymap.set("n", "<leader>n", vim.cmd.NvimTreeToggle, opts)
 vim.keymap.set("i", "jj", "<ESC>", opts)
 

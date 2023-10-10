@@ -63,10 +63,28 @@ return {
   {
     'goolord/alpha-nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function ()
-        require'alpha'.setup(require'alpha.themes.startify'.config)
+    config = function()
+      require 'alpha'.setup(require 'alpha.themes.startify'.config)
     end
- },
-
+  },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
+  -- Haxe Lang Tools
+  {
+    'jdonaldson/vaxe'
+  },
+  -- Nim Lang Tools
+  {
+    'alaviss/nim.nvim'
+  },
 
 }
